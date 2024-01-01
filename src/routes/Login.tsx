@@ -1,7 +1,13 @@
-import { redirect } from 'react-router-dom'
 import '../../styles/login.css'
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 export default function Login(){
+const navigate = useNavigate()
+    useEffect(()=>{
+        navigate("/home")
+    },[handleSubmit])
+
+
     const [formData,setFormData] = useState({username: '',password:''})
     async function handleSubmit(){
         try{
@@ -15,7 +21,6 @@ export default function Login(){
             if(res.ok){
                 res.json().then((res)=>{
                     console.log(res.message)
-                    redirect('/home')
                 })
             }
         }
