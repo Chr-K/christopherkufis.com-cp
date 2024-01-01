@@ -3,8 +3,12 @@ import { useState, ChangeEvent, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 export default function Login(){
 const navigate = useNavigate()
+const [loggedIn,setLoggedIn] = useState(false)
+
     useEffect(()=>{
-        navigate("/home")
+        if(loggedIn){
+            navigate("/home")
+        }
     },[handleSubmit])
 
 
@@ -21,6 +25,7 @@ const navigate = useNavigate()
             if(res.ok){
                 res.json().then((res)=>{
                     console.log(res.message)
+                    setLoggedIn(true)
                 })
             }
         }
