@@ -12,7 +12,9 @@ export default function Login(){
                 body:JSON.stringify(formData),
             })
             if(res.ok){
-                console.log(res.json())
+                res.json().then((res)=>{
+                    console.log(res.message)
+                })
             }
         }
         catch(err){
