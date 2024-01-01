@@ -1,3 +1,4 @@
+import { redirect } from 'react-router-dom'
 import '../../styles/login.css'
 import { useState, ChangeEvent } from 'react'
 export default function Login(){
@@ -14,6 +15,7 @@ export default function Login(){
             if(res.ok){
                 res.json().then((res)=>{
                     console.log(res.message)
+                    redirect('/home')
                 })
             }
         }
