@@ -8,7 +8,6 @@ export default function Login(){
             mode:'cors',
             headers:{"content-type":"application/json"},
             redirect:"follow",
-            body:JSON.stringify(formData),
         })
     }
 
