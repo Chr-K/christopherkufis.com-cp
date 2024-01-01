@@ -9,6 +9,8 @@ export default function Login(){
             headers:{"content-type":"application/json"},
             redirect:"follow",
             body:JSON.stringify(formData),
+        }).then((res)=>{
+            console.log(res.body)
         })
     }
 
