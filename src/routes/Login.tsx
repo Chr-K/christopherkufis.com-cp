@@ -3,15 +3,22 @@ import { useState, ChangeEvent } from 'react'
 export default function Login(){
     const [formData,setFormData] = useState({username: '',password:''})
     async function handleSubmit(){
-       await fetch('https://api.christopherkufis.com/auth/',{
-            method:'POST',
-            mode:'cors',
-            headers:{"content-type":"application/json"},
-            redirect:"follow",
-            body:JSON.stringify(formData),
-        }).then((res)=>{
-            console.log(res.body)
-        })
+        try{
+            const res = await fetch('https://api.christopherkufis.com/auth/',{
+                method:'POST',
+                mode:'cors',
+                headers:{"content-type":"application/json"},
+                redirect:"follow",
+                body:JSON.stringify(formData),
+            })
+            if(res.ok){
+                console.log(res.body)
+            }
+        }
+        catch(err){
+
+        }
+
     }
 
     function handleInput(e: ChangeEvent<HTMLInputElement>){
