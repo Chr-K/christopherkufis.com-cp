@@ -1,9 +1,10 @@
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../../styles/login.css'
 import { useState, ChangeEvent } from 'react'
 export default function Login(){
     const [formData,setFormData] = useState({username: '',password:''})
     async function handleSubmit(){
+        const navigate = useNavigate()
         try{
             const res = await fetch('https://api.christopherkufis.com/auth/',{
                 method:'POST',
@@ -15,7 +16,7 @@ export default function Login(){
             if(res.ok){
                 res.json().then((res)=>{
                     console.log(res.message)
-                    redirect('/home')
+                    navigate('/home')
                 })
             }
         }
