@@ -3,7 +3,7 @@ import { useState, ChangeEvent } from 'react'
 export default function Login(){
     const [formData,setFormData] = useState({username: '',password:''})
     async function handleSubmit(){
-       await fetch('https://api.christopherkufis.com/auth',{
+       await fetch('https://api.christopherkufis.com/auth/',{
             method:'POST',
             mode:'cors',
             headers:{"content-type":"application/json"},
