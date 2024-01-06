@@ -22,6 +22,7 @@ export default function Root(){
             return false;
         }            
         })
+        console.log(res)
         return res
 
     }
