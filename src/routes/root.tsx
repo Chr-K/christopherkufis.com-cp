@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
-    const [LoggedIn,setLoggedIn] = useState(isLoggedIn())
+    const [LoggedIn,setLoggedIn] = useState(isLoggedIn)
 
     useEffect(()=>{
-
+        console.log(LoggedIn)
     },[LoggedIn])
 
     async function isLoggedIn(){
