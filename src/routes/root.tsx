@@ -6,9 +6,10 @@ export default function Root(){
    async function handleLogout(){
     const res = await fetch('https://api.christopherkufis.com/logout',{
         method:'POST',
-        credentials:'include',
-        redirect:'follow',
         mode:'cors',
+        headers:{"content-type":"application/json"},
+        redirect:"follow",
+        credentials:'include',
     })
 
     if(res.ok){
