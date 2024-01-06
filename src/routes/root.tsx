@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
 export default function Root(){
     const [LoggedIn,setLoggedIn] = useState(isLoggedIn)
-    const [editLink,setEditLink] = useState('')
     const navigate = useNavigate()
     useEffect(()=>{
         const checkSession = async () =>{
                 if(await LoggedIn){
-                    setEditLink('/home')
                 }
                 else{
-                    setEditLink('/')
                     navigate('/')
                 }
         }
         checkSession()
-    },[LoggedIn,editLink])
+    },[LoggedIn])
 
     async function isLoggedIn(){
         const res = await fetch('https://api.christopherkufis.com/loggedin',{
@@ -46,6 +42,11 @@ export default function Root(){
             setLoggedIn(isLoggedIn())
         }
     }
+    async function handleEditArticles(){
+        if(await isLoggedIn()){
+            navigate('/home')
+        }
+    }
 
 return(
     <>
@@ -53,7 +54,7 @@ return(
     <div className="nav">
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
-            <Link to={editLink}>Edit Articles</Link>
+            <span className="link" onClick={handleEditArticles}>Edit Articles</span>
             <span className="link" onClick={logOut}>Logout</span>
             </div>
         </div>
