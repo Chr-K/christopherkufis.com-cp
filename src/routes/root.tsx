@@ -16,7 +16,7 @@ export default function Root(){
                 }
         }
         checkSession()
-    },[LoggedIn])
+    },[LoggedIn,editLink])
 
     async function isLoggedIn(){
         const res = await fetch('https://api.christopherkufis.com/loggedin',{
