@@ -16,7 +16,6 @@ export default function Root(){
         if(res.ok){
             res.json().then((res)=>{
                 console.log(res.message)
-                navigate('/')
             })
         }
     }
