@@ -7,15 +7,12 @@ export default function Root(){
     useEffect(()=>{
         const checkSession = async () =>{
                 if(await LoggedIn){
-
                 }
                 else{
                     navigate('/')
                 }
-
         }
         checkSession()
-        console.log(LoggedIn)
     },[LoggedIn])
 
     async function isLoggedIn(){
@@ -32,7 +29,6 @@ export default function Root(){
             return false;
         }            
         })
-        console.log(res)
         return res
 
     }
@@ -54,7 +50,7 @@ return(
     <div className="nav">
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
-            <Link to='/home'>Edit Articles</Link>
+            <Link onClick={isLoggedIn} to='/home'>Edit Articles</Link>
             <span className="link" onClick={logOut}>Logout</span>
             </div>
         </div>
