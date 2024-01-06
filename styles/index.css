@@ -57,3 +57,6 @@ font-size: x-large;
     background-color: whitesmoke;
     cursor:pointer;
 }
+.link:hover{
+cursor: pointer;
+}
