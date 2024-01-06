@@ -33,7 +33,7 @@ export default function Home(){
         submit()
     }
     async function submit(){
-        const res = await fetch('https://api.christopherkufis.com/submitarticle',{
+        const res = await fetch('api.christopherkufis.com/submitarticle',{
             method:"POST",
             mode:'cors',
             headers:{
