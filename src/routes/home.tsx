@@ -24,10 +24,10 @@ export default function Home(){
     ]
     const quilRef = useRef<ReactQuill | null>(null)
     const [title,setTitle] = useState<string>()
+    const [preview,setPreview] = useState<TrustedHTML>(<div></div>)
     const handleContent = () =>{
         if(quilRef.current && quilRef.current.editor){
             const full = quilRef.current.editor.root.innerHTML;
-            document.getElementById('preview')!.innerHTML = full
             if(title){
                 submit(full,title)
             }
@@ -60,9 +60,9 @@ export default function Home(){
         <input onChange={(e)=>{setTitle(e.target.value)}} id='title'></input>
         </div>
         <div className='quill-cont'>
-        <ReactQuill formats={formats} modules={module} ref={quilRef}></ReactQuill>
+        <ReactQuill onChange={(quilRef)=>{setPreview(quilRef)}} formats={formats} modules={module} ref={quilRef}></ReactQuill>
         </div>
         <button className='btn-1 submit-btn' onClick={handleContent}>Submit</button>
-        <div id='preview'></div>
+        <div id='preview' dangerouslySetInnerHTML={{__html:preview}}></div>
     </div>)
 }
