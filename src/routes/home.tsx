@@ -28,17 +28,17 @@ export default function Home(){
     const handleContent = () =>{
         if(quilRef.current && quilRef.current.editor){
             const full = quilRef.current.editor.root.innerHTML;
-            console.log(full)
+            submit(full)
         }
-        submit()
     }
-    async function submit(){
+    async function submit(data:string){
         const res = await fetch('https://api.christopherkufis.com/submitarticle/',{
             method:"POST",
             mode:'cors',
             headers:{
                 'content-type':'application/json',
         },
+        body:JSON.stringify(data),
         credentials:'include',
         })
         if(res.ok){
