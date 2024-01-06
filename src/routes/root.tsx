@@ -47,7 +47,7 @@ return(
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
             <Link to='/home'>Edit Articles</Link>
-            <span className=".link" onClick={logOut}>Logout</span>
+            <span className="link" onClick={logOut}>Logout</span>
             </div>
         </div>
         <div className="content">
