@@ -36,7 +36,8 @@ export default function Home(){
         const res = await fetch('https://api.christopherkufis.com/submitarticle',{
             method:"POST",
             mode:'cors',
-            headers:{'content-type':'application/json'}
+            headers:{'content-type':'application/json'},
+            credentials:'include'
         })
         if(res.ok){
             res.json().then((res)=>{

@@ -21,6 +21,7 @@ const [loggedIn,setLoggedIn] = useState(false)
                 headers:{"content-type":"application/json"},
                 redirect:"follow",
                 body:JSON.stringify(formData),
+                credentials:'include'
             })
             if(res.ok){
                 res.json().then((res)=>{
