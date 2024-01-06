@@ -4,20 +4,26 @@ export default function Root(){
     const navigate = useNavigate()
     
    async function handleLogout(){
-    const res = await fetch("https://api.christopherkufis.com/logout",{
-        method:'POST',
-        mode:'cors',
-        headers:{"content-type":"application/json"},
-        redirect:"follow",
-        credentials:'include',
-    })
-
-    if(res.ok){
-        res.json().then((res)=>{
-            console.log(res.message)
-            navigate('/')
+    try{
+        const res = await fetch("https://api.christopherkufis.com/logout",{
+            method:'POST',
+            mode:'cors',
+            headers:{"content-type":"application/json"},
+            redirect:"follow",
+            credentials:'include',
         })
+    
+        if(res.ok){
+            res.json().then((res)=>{
+                console.log(res.message)
+                navigate('/')
+            })
+        }
     }
+    catch(err){
+        console.error(err);
+    }
+
 
     }
 return(
