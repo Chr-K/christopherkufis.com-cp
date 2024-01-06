@@ -30,7 +30,21 @@ export default function Home(){
             const full = quilRef.current.editor.root.innerHTML;
             console.log(full)
         }
+        submit()
     }
+    async function submit(){
+        const res = await fetch('https://api.christopherkufis.com/submitarticle',{
+            method:"POST",
+            mode:'cors',
+            headers:{'content-type':'application/json'}
+        })
+        if(res.ok){
+            res.json().then((res)=>{
+                console.log(res.message)
+            })
+        }
+    }
+
     return(
     <div className="container-home">
         <div className='title-input'>
