@@ -3,12 +3,15 @@ import { Outlet, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
     const [LoggedIn,setLoggedIn] = useState(isLoggedIn)
+    const [editLink,setEditLink] = useState('')
     const navigate = useNavigate()
     useEffect(()=>{
         const checkSession = async () =>{
                 if(await LoggedIn){
+                    setEditLink('/home')
                 }
                 else{
+                    setEditLink('/')
                     navigate('/')
                 }
         }
@@ -50,7 +53,7 @@ return(
     <div className="nav">
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
-            <Link onClick={isLoggedIn} to='/home'>Edit Articles</Link>
+            <Link to={editLink}>Edit Articles</Link>
             <span className="link" onClick={logOut}>Logout</span>
             </div>
         </div>
