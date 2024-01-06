@@ -8,15 +8,16 @@ export default function Root(){
     useEffect(()=>{
         const checkSession = async ()=>{
             try{
-                await isLoggedIn()
-
+                await isLoggedIn().then(()=>{
+                    if(!LoggedIn){
+                        navigate('/')
+                    }
+                })
             }
             catch{
     
             }
-            if(!LoggedIn){
-                navigate('/')
-            }
+
         }
         checkSession()
     },[LoggedIn])
