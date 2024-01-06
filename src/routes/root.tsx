@@ -2,19 +2,20 @@ import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
-    const [LoggedIn,setLoggedIn] = useState(false)
+    const [LoggedIn,setLoggedIn] = useState(true)
     const navigate = useNavigate()
 
     useEffect(()=>{
         const checkSession = async ()=>{
             try{
                 await isLoggedIn()
-                if(!LoggedIn){
-                    navigate('/')
-                }
+
             }
             catch{
     
+            }
+            if(!LoggedIn){
+                navigate('/')
             }
         }
         checkSession()
