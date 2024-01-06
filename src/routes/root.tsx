@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
-    
+    const navigate = useNavigate()
    async function handleLogout(){
     try{
         const res = await fetch("https://api.christopherkufis.com/logout",{
@@ -16,6 +16,7 @@ export default function Root(){
             res.json().then((res)=>{
                 console.log(res.message)
             })
+            navigate('/')
         }
     }
     catch(err){
