@@ -1,7 +1,7 @@
 import '../../styles/home.css'
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 export default function Home(){
     const module = {
         toolbar:[
@@ -23,13 +23,16 @@ export default function Home(){
         'size'
     ]
     const quilRef = useRef<ReactQuill | null>(null)
+    const [title,setTitle] = useState<string>()
     const handleContent = () =>{
         if(quilRef.current && quilRef.current.editor){
             const full = quilRef.current.editor.root.innerHTML;
-            submit(full)
+            if(title){
+                submit(full,title)
+            }
         }
     }
-    async function submit(data:string){
+    async function submit(content:string,title:string){
         const res = await fetch('https://api.christopherkufis.com/submitarticle/',{
             method:"POST",
             mode:'cors',
@@ -37,8 +40,8 @@ export default function Home(){
                 'content-type':'application/json',
         },
         body:JSON.stringify({
-            content:data,
-            title:document.getElementById('title')?.innerHTML
+            content:content,
+            title:title,
         }),
         credentials:'include',
         })
@@ -53,9 +56,8 @@ export default function Home(){
     <div className="container-home">
         <div className='title-input'>
         <label>Title: </label>
-        <input id='title'></input>
+        <input onChange={(e)=>{setTitle(e.target.value)}} id='title'></input>
         </div>
-
         <div className='quill-cont'>
         <ReactQuill formats={formats} modules={module} ref={quilRef}></ReactQuill>
         </div>
