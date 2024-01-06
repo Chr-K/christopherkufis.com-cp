@@ -15,7 +15,7 @@ const [loggedIn,setLoggedIn] = useState(false)
     const [formData,setFormData] = useState({username: '',password:''})
     async function handleSubmit(){
         try{
-            const res = await fetch('api.christopherkufis.com/auth/',{
+            const res = await fetch('https://api.christopherkufis.com/auth/',{
                 method:'POST',
                 mode:'cors',
                 headers:{"content-type":"application/json"},
