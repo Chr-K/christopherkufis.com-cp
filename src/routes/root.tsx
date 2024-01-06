@@ -2,22 +2,14 @@ import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
-    const [LoggedIn,setLoggedIn] = useState(false)
+    const [LoggedIn,setLoggedIn] = useState(isLoggedIn())
     const navigate = useNavigate()
 
     useEffect(()=>{
         const checkSession = async ()=>{
-            try{
-                await isLoggedIn().then(()=>{
-                    if(!LoggedIn){
-                        navigate('/')
-                    }
-                })
-            }
-            catch{
-    
-            }
-
+        if(!LoggedIn){
+                navigate('/')
+        }
         }
         checkSession()
     },[LoggedIn])
@@ -30,9 +22,9 @@ export default function Root(){
             credentials:'include',
         })
         if(res.ok){
-            setLoggedIn(true)
+            return true;
         }else{
-            setLoggedIn(false)
+            return false;
         }
     }
     async function logOut(){
@@ -43,7 +35,7 @@ export default function Root(){
             credentials:'include',
         })
         if(res.ok){
-            setLoggedIn(false)
+            setLoggedIn(isLoggedIn())
         }
     }
 
