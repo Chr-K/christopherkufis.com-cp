@@ -2,8 +2,6 @@ import '../../styles/home.css'
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import { useRef } from 'react';
-
-
 export default function Home(){
     const module = {
         toolbar:[
@@ -38,7 +36,10 @@ export default function Home(){
             headers:{
                 'content-type':'application/json',
         },
-        body:JSON.stringify(data),
+        body:JSON.stringify({
+            content:data,
+            title:document.getElementById('title')?.innerHTML
+        }),
         credentials:'include',
         })
         if(res.ok){
@@ -52,7 +53,7 @@ export default function Home(){
     <div className="container-home">
         <div className='title-input'>
         <label>Title: </label>
-        <input></input>
+        <input id='title'></input>
         </div>
 
         <div className='quill-cont'>
