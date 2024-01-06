@@ -5,7 +5,7 @@ export default function Root(){
     const [LoggedIn,setLoggedIn] = useState(isLoggedIn)
 
     useEffect(()=>{
-        console.log(LoggedIn)
+
     },[LoggedIn])
 
     async function isLoggedIn(){
@@ -14,12 +14,16 @@ export default function Root(){
             mode:'cors',
             headers:{"content-type":"application/json"},
             credentials:'include',
-        })
+        }).then((res)=>{
         if(res.ok){
             return true;
-        }else{
-            return false;
         }
+        else{
+            return false;
+        }            
+        })
+        return res
+
     }
     async function logOut(){
         const res = await fetch('https://api.christopherkufis.com/logout',{
