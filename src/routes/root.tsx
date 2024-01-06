@@ -6,12 +6,20 @@ export default function Root(){
     const navigate = useNavigate()
 
     useEffect(()=>{
-        isLoggedIn()
-        if(!LoggedIn){
-            navigate('/')
+        const checkSession = async ()=>{
+            try{
+                await isLoggedIn()
+                if(!LoggedIn){
+                    navigate('/')
+                }
+            }
+            catch{
+    
+            }
         }
-
+        checkSession()
     },[LoggedIn])
+
     async function isLoggedIn(){
         const res = await fetch('https://api.christopherkufis.com/loggedin',{
             method:'POST',
