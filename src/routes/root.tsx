@@ -6,8 +6,13 @@ export default function Root(){
     const navigate = useNavigate()
     useEffect(()=>{
         const checkSession = async () =>{
-            try{LoggedIn}
-            catch{navigate('/')}
+                if(await LoggedIn){
+
+                }
+                else{
+                    navigate('/')
+                }
+
         }
         checkSession()
         console.log(LoggedIn)
