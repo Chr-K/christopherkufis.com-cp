@@ -27,6 +27,7 @@ export default function Home(){
     const handleContent = () =>{
         if(quilRef.current && quilRef.current.editor){
             const full = quilRef.current.editor.root.innerHTML;
+            document.getElementById('preview')!.innerHTML = full
             if(title){
                 submit(full,title)
             }
@@ -62,5 +63,6 @@ export default function Home(){
         <ReactQuill formats={formats} modules={module} ref={quilRef}></ReactQuill>
         </div>
         <button className='btn-1 submit-btn' onClick={handleContent}>Submit</button>
+        <div id='preview'></div>
     </div>)
 }
