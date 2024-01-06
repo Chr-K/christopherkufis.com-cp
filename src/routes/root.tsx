@@ -6,8 +6,9 @@ export default function Root(){
     const navigate = useNavigate()
     useEffect(()=>{
         if(!LoggedIn){
-            navigate('/')
+            navigate("/")
         }
+        console.log(LoggedIn)
     },[LoggedIn])
 
     async function isLoggedIn(){
