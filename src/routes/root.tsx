@@ -1,6 +1,20 @@
 import { Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
+   async function handleLogout(){
+    const res = await fetch('https://api.christopherkufis.com/logout',{
+        method:'POST',
+        credentials:'include',
+        redirect:'follow'
+    })
+
+    if(res.ok){
+        res.json().then((res)=>{
+            console.log(res.message)
+        })
+    }
+
+    }
 return(
     <>
     <div className="container">
@@ -8,7 +22,7 @@ return(
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
             <Link to='/home'>Edit Articles</Link>
-            <Link to='/home'>Logout</Link>
+            <span onClick={handleLogout}>Logout</span>
             </div>
         </div>
         <div className="content">
