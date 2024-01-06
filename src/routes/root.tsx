@@ -19,7 +19,6 @@ export default function Root(){
         if(res.ok){
             return true;
         }else{
-            navigate('/')
             return false;
         }
     }
