@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
 export default function Root(){
     const [LoggedIn,setLoggedIn] = useState(isLoggedIn())
-    const navigate = useNavigate()
 
     useEffect(()=>{
-        isLoggedIn()
+
     },[LoggedIn])
 
     async function isLoggedIn(){
