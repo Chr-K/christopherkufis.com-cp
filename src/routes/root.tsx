@@ -4,7 +4,7 @@ export default function Root(){
     const navigate = useNavigate()
     
    async function handleLogout(){
-    const res = await fetch('https://api.christopherkufis.com/logout',{
+    const res = await fetch("https://api.christopherkufis.com/logout",{
         method:'POST',
         mode:'cors',
         headers:{"content-type":"application/json"},
