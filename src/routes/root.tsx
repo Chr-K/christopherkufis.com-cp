@@ -5,7 +5,8 @@ export default function Root(){
     const res = await fetch('https://api.christopherkufis.com/logout',{
         method:'POST',
         credentials:'include',
-        redirect:'follow'
+        redirect:'follow',
+        mode:'cors',
     })
 
     if(res.ok){
