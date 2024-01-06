@@ -34,13 +34,10 @@ export default function Root(){
             headers:{"content-type":"application/json"},
             credentials:'include',
         })
-        if(res.ok){
+        if(res){
             setLoggedIn(isLoggedIn())
         }
     }
-
-
-
 
 return(
     <>
