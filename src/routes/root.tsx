@@ -7,8 +7,8 @@ return(
     <div className="nav">
         <span className="chris">Christopher Kufis</span>
             <div className="nav-btn">
-            <Link to='/home'>Home</Link>
             <Link to='/home'>Edit Articles</Link>
+            <Link to='/home'>Logout</Link>
             </div>
         </div>
         <div className="content">
