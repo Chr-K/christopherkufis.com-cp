@@ -38,6 +38,8 @@ font-size: x-large;
 .content{
     display:flex;
     justify-content: center;
+    flex-direction: column;
+    margin-bottom:1rem;
 
 }
 .chris{

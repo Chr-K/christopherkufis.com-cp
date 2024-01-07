@@ -10,7 +10,7 @@ export default function Card(card : CardProps){
     async function handleDelete(){
         const res = await fetch('https://api.christopherkufis.com/delete-article',{
             method:'DELETE',
-            body:JSON.stringify(card.ID),
+            body:JSON.stringify({id:card.ID}),
             headers:{
                 'content-type': 'application/json'
             },
