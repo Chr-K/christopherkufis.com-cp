@@ -27,7 +27,7 @@ export default function Card(card : CardProps){
             await res.json().then((res)=>{
                 console.log(res.status)
                 console.log(update)
-                setUpdate(!update)
+                setUpdate(true)
                 console.log(update)
             })
         }
