@@ -10,8 +10,8 @@ row-gap: .25rem;
     width:100%;
     height:50vh;
     resize:none;
-    font-size: large;
-    overflow:scroll
+    overflow:scroll;
+    text-align: center;
 }
 .editor:focus{
     outline:none;

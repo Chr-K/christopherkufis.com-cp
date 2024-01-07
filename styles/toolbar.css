@@ -1,3 +1,12 @@
 .toolbar{
     align-self: flex-start;
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-size: larger;
+    text-align: center;
+}
+.size-btn{
+    font-size: larger;
+    width:4rem;
 }
