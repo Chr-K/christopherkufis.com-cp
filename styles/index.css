@@ -46,6 +46,9 @@ font-size: x-large;
     font-size: xx-large;
     margin-left: 5rem;
 }
+.chris:hover{
+    cursor: pointer;
+}
 .btn-1{
     width:7rem;
     height:2rem;
