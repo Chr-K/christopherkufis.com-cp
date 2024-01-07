@@ -1,12 +1,17 @@
+import { useEffect, useState } from 'react'
 import '../../styles/card.css'
 import { CardProps } from './types/cardprops'
 import { useNavigate } from 'react-router-dom'
 
 export default function Card(card : CardProps){
     const navigate = useNavigate()
+    const [update,setUpdate] = useState(false)
     function handleClick(){
         navigate(`/article/${card.ID}`)
     }
+    useEffect(()=>{
+
+    },[update])
     async function handleDelete(){
         const res = await fetch('https://api.christopherkufis.com/delete-article',{
             method:'DELETE',
@@ -21,6 +26,7 @@ export default function Card(card : CardProps){
         if(res.ok){
             res.json().then((res)=>{
                 console.log(res.message)
+                setUpdate(!update)
             })
         }
     }
