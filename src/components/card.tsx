@@ -2,11 +2,12 @@ import '../../styles/card.css'
 import { CardProps } from './types/cardprops'
 import { useNavigate } from 'react-router-dom'
 
-export default function Card(card : CardProps){
+export default function Card(card:CardProps){
     const navigate = useNavigate()
     function handleClick(){
         navigate(`/article/${card.ID}`)
     }
+/*
     async function handleDelete(){
         try{
             await fetch('https://api.christopherkufis.com/delete-article',{
@@ -23,10 +24,11 @@ export default function Card(card : CardProps){
             console.error(err)
         }
     }
+*/
     return(
         <div className='card-container'>
-            <div onClick={handleDelete} className='delete'>Delete</div>
-    <div className="card" onClick={handleClick}>
+        <div onClick={card.onClick} className='delete'>Delete</div>
+        <div className="card" onClick={handleClick}>
         <p className='card-title'> {card.title} </p>
         <p className='card-content'> {card.subtitle} </p>
         <p className='read-link'>Click To Read</p>

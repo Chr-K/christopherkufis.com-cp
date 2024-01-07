@@ -5,4 +5,5 @@ export interface CardProps{
     created:string,
     updated:string,
     ID:number,
+    onClick:()=>void
     }
