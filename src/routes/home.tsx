@@ -24,7 +24,7 @@ export default function Home(){
     ]
     const quilRef = useRef<ReactQuill | null>(null)
     const [title,setTitle] = useState<string>()
-    const [preview,setPreview] = useState<TrustedHTML>(<div> </div>)
+    const [preview,setPreview] = useState<TrustedHTML>('<div></div>')
     const handleContent = () =>{
         if(quilRef.current && quilRef.current.editor){
             const full = quilRef.current.editor.root.innerHTML;
