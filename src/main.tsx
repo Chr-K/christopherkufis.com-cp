@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import Root from './routes/root';
 import Home from './routes/home';
 import Login from './routes/Login';
+import EditArticles from './routes/editArticles';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,8 +19,13 @@ const router = createBrowserRouter([
     },{
       path:'/home',
       element:<Home></Home>
+    },
+    {
+      path:'/edit-articles',
+      element:<EditArticles></EditArticles>
     }
     ],
+
   },
 ]);
 
