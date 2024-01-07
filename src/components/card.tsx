@@ -1,35 +1,26 @@
-import { useEffect, useState } from 'react'
 import '../../styles/card.css'
 import { CardProps } from './types/cardprops'
 import { useNavigate } from 'react-router-dom'
 
 export default function Card(card : CardProps){
     const navigate = useNavigate()
-    const [update,setUpdate] = useState(false)
     function handleClick(){
         navigate(`/article/${card.ID}`)
     }
-    useEffect(()=>{
-
-    },[update])
     async function handleDelete(){
-        const res = await fetch('https://api.christopherkufis.com/delete-article',{
-            method:'DELETE',
-            body:JSON.stringify({id:card.ID}),
-            headers:{
-                'content-type': 'application/json'
-            },
-            mode:'cors',
-            credentials:'include'
-
-        })
-        if(res.ok){
-            await res.json().then((res)=>{
-                console.log(res.status)
-                console.log(update)
-                setUpdate(true)
-                console.log(update)
+        try{
+            await fetch('https://api.christopherkufis.com/delete-article',{
+                method:"DELETE",
+                mode:'cors',
+                credentials:'include',
+                headers:{"content-type":"application/json"},
+                body:JSON.stringify(card.ID),
+            }).then((res)=>{
+                res.json().then((res)=>{console.log(res)})
             })
+        }
+        catch(err){
+            console.error(err)
         }
     }
     return(
