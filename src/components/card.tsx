@@ -14,7 +14,7 @@ export default function Card(card : CardProps){
                 mode:'cors',
                 credentials:'include',
                 headers:{"content-type":"application/json"},
-                body:JSON.stringify(card.ID),
+                body:JSON.stringify({id:card.ID}),
             }).then((res)=>{
                 res.json().then((res)=>{console.log(res)})
             })
