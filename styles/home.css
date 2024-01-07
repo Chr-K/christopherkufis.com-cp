@@ -2,31 +2,21 @@
 align-items: center;
 display:flex;
 flex-direction: column;
-row-gap: 2rem;
-width:100vw;
+width:75vw;
+row-gap: .25rem;
 }
-.quill{
-    width:65vw;
+.editor{
+    border:solid 2px black;
+    width:100%;
     height:50vh;
+    resize:none;
+    font-size: large;
+    overflow:scroll
 }
-.ql-container{
-    border:1px solid black!important;
-    font-size: 18px!important;
-}
-.ql-toolbar{
-border-top:1px solid black!important;
-border-right:1px solid black!important;
-border-left:1px solid black!important;
-
-}
-.title-input{
-display: flex;
-align-items: center;
-justify-content: center;
-gap:.5rem;
+.editor:focus{
+    outline:none;
 }
 .submit-btn{
-    margin-top:3rem;
     align-self: flex-end;
-    margin-right:17rem;
+    margin-top:1rem;
 }
