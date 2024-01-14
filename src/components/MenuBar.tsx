@@ -38,7 +38,8 @@ export default function MenuBar(){
 
     editor.setOptions({editorProps:
         {handleDOMEvents:{
-            keydown: (view,e)=>{handleKeyDown(e)}
+            keydown: (view,e)=>{handleKeyDown(e) 
+                console.log(view)}
         }}
     })
 
