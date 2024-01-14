@@ -30,7 +30,7 @@ export default function MenuBar(){
     }
 
     async function uploadImg(formData:FormData){
-        fetch('https://api.christopherkufis.com/uploadimage',{
+        fetch('https://api.christopherkufis.com/imageupload',{
             method:'POST',
             credentials:"include",
             body:formData,
