@@ -1,0 +1,26 @@
+.tiptap{
+border:1px solid black;
+border-radius: 10px;
+width:75vw;
+height:50vh;
+margin-top:1rem;
+text-align: center;
+overflow:scroll;
+}
+::-webkit-scrollbar{
+    display:none;
+}
+.tiptap:focus{
+    outline:none;
+}
+.tiptap > p{
+margin-block-end: 0.25rem;
+margin-block-start: 0.25rem;
+}
+.editor-images{
+height:auto;
+width:50%;
+margin-left: 50%;
+transform:translateX(-50%);
+margin-top:1rem;
+}

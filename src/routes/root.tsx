@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 export default function Root(){
-    const testMode = false;
+    const testMode = true;
     const [LoggedIn,setLoggedIn] = useState(isLoggedIn)
     const navigate = useNavigate()
     if(testMode){
