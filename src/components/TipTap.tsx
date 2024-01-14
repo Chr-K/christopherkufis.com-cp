@@ -3,6 +3,7 @@ import { EditorProvider} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
 import MenuBar from './MenuBar'
+import ArticleSubmit from './articleSubmit'
 // define your extension array
 const extensions = [
   StarterKit,
@@ -13,7 +14,7 @@ const content = '<p></p>'
 
 const Tiptap = () => {
   return (
-<EditorProvider extensions={extensions} content={content} slotBefore={<MenuBar></MenuBar>}><></></EditorProvider>
+<EditorProvider extensions={extensions} content={content} slotBefore={<MenuBar></MenuBar>} slotAfter={<ArticleSubmit></ArticleSubmit>}><></></EditorProvider>
   )
 }
 

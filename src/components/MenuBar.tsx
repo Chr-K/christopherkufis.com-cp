@@ -17,24 +17,30 @@ export default function MenuBar(){
             }
         }
     }
-    function uploadImg(){
+    function uploadClick(){
         document.getElementById('hidden-image-input')?.click();
     }
-    function inputImage(e:EventTarget){
+    async function inputImage(e:EventTarget){
         const element = e as HTMLInputElement
+        const formData = new FormData()
         if(element.files && element.files[0]){
-            const reader = new FileReader();
-            reader.onload = (e)=>{
-                const result = e.target?.result as string
-                editor?.chain().focus().setImage({src:result}).run()
-            }
-            reader.readAsDataURL(element.files[0])
+            formData.append('image',element.files[0])
+            uploadImg(formData)
         }
     }
 
-    function test(){
-        console.log(editor?.getHTML())
+    async function uploadImg(formData:FormData){
+        fetch('https://api.christopherkufis.com/uploadimage',{
+            method:'POST',
+            credentials:"include",
+            body:formData,
+            mode:'cors'
+        }).then(response=>response.json())
+        .then(data=>console.log(data))
+        .catch(error=>console.error('Error',error))
     }
+
+
 
     editor.setOptions({editorProps:
         {handleDOMEvents:{
@@ -47,9 +53,8 @@ export default function MenuBar(){
     <div className='menu-bar'>
         <button className={editor.isActive('bold') ? 'activated' : ''}  onClick={()=>editor?.chain().focus().toggleBold().run()}>B</button>
         <button className={editor.isActive('italic') ? 'activated' : ''} onClick={()=>editor.chain().focus().toggleItalic().run()}>I</button>
-        <span onClick={uploadImg}><ImageIconLine></ImageIconLine></span>
+        <span onClick={uploadClick}><ImageIconLine></ImageIconLine></span>
         <input onInput={(e)=>{inputImage(e.currentTarget)}} id='hidden-image-input' style={{display:'none'}} type='file' accept='image/*'></input>
-        <button onClick={test}>Submit</button>
     </div>
     )
 }

@@ -4,16 +4,7 @@ import Tiptap from '../components/TipTap';
 export default function Home(){
     const [title,setTitle] = useState('')
     console.log(title)
-    async function submit(){
-        await fetch('https//api.christopherkufis.com/imageupload',{
-            method:'GET',
-            mode:'cors',
-            credentials:'include',
 
-        }).then((res)=>{
-            res.json().then((res)=>console.log(res))
-        })
-    }
 
     return(
     <div className="container-home">
@@ -22,6 +13,5 @@ export default function Home(){
         <div className='editor-container'>
             <Tiptap></Tiptap>
         </div>
-        <button className='btn-1' onClick={submit}>Submit</button>
     </div>)
 } 
