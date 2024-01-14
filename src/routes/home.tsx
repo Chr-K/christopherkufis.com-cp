@@ -1,10 +1,9 @@
 import '../../styles/home.css'
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Tiptap from '../components/TipTap';
 export default function Home(){
-    const navigate = useNavigate()
     const [title,setTitle] = useState('')
+    console.log(title)
     async function submit(){
         await fetch('https//api.christopherkufis.com/imageupload',{
             method:'GET',
