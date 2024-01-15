@@ -6,7 +6,7 @@ export default function editArticles(){
     
     useEffect(()=>{
         getArticles()
-    },[articles])
+    },[])
     async function getArticles() {
         fetch('https://api.christopherkufis.com/articles',{
             method:"GET",
