@@ -36,7 +36,9 @@ export default function MenuBar(){
             body:formData,
             mode:'cors'
         }).then(response=>response.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            editor?.commands.setImage({src:'../christopherkufis.com-cp/' + data})
+        })
         .catch(error=>console.error('Error',error))
     }
 
