@@ -24,6 +24,7 @@ export default function ArticleSubmit(){
             })   
             if(res.ok){
                 res.json().then((res)=>{
+                    console.log(res)
                     navigate('/edit-articles')
                 })
             }
