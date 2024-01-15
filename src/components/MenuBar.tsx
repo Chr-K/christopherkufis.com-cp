@@ -38,7 +38,7 @@ export default function MenuBar(){
         }).then(response=>response.json())
         .then(data=>{
             console.log(data)
-            editor?.commands.setImage({src:'/var/www/html/christopherkufis.com-backend/images/1705278791808'})
+            editor?.commands.setImage({src:'https://api.christopherkufis.com/images/' + data})
         })
         .catch(error=>console.error('Error',error))
     }
