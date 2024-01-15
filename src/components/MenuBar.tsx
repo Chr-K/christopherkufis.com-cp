@@ -37,7 +37,8 @@ export default function MenuBar(){
             mode:'cors'
         }).then(response=>response.json())
         .then(data=>{
-            editor?.commands.setImage({src:'../christopherkufis.com-backend/images/' + data})
+            console.log(data)
+            editor?.commands.setImage({src:'/var/www/html/christopherkufis.com-backend/images/1705278791808'})
         })
         .catch(error=>console.error('Error',error))
     }
