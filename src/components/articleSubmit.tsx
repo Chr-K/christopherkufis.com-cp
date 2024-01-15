@@ -18,7 +18,7 @@ export default function ArticleSubmit(){
                     'content-type':'application/json',
                 },
                 body:JSON.stringify({
-                    content:editor.getHTML,
+                    content:editor.getHTML(),
                     title:title.value
                 })
             })   
