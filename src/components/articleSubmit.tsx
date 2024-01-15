@@ -1,14 +1,9 @@
+import { useCurrentEditor } from "@tiptap/react"
+
 export default function ArticleSubmit(){
+    const {editor} = useCurrentEditor()
     async function submit(){
-        await fetch('https://api.christopherkufis.com/imageupload',{
-            method:'GET',
-            credentials:'include',
-            mode:'cors'
-        }).then((res)=>{
-            res.json().then((res)=>{
-                console.log(res)
-            })
-        })
+        console.log(editor?.getHTML())
     }
     return(
     <>
